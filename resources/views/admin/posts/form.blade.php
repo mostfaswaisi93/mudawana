@@ -1,0 +1,137 @@
+<!-- Post Modal -->
+
+<div class="modal fade" id="postModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <span id="form_result"></span>
+                <form method="post" id="postForm" class="form-horizontal" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="title" class="control-label col-md-2">{{ trans('admin.title') }}: </label>
+                        <div class="col-md-9">
+                            <input type="text" name="title" id="title" class="form-control"
+                                placeholder="{{ trans('admin.e_title') }}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="author" class="control-label col-md-2">{{ trans('admin.author') }}: </label>
+                        <div class="col-md-9">
+                            <input type="text" name="author" id="author" class="form-control"
+                                placeholder="{{ trans('admin.e_author') }}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tag_id" class="col-md-2 control-label">{{ trans('admin.tags') }}: </label>
+                        <div class="col-md-9">
+                            <select class="form-control selectTag select2" id="tag_id" name="tag_id[]" multiple
+                                style="width: 100%;">
+                                @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="body" class="col-md-2 control-label">{{ trans('admin.body') }}: </label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" name="body" cols="50" rows="10" id="body"
+                                placeholder="{{ trans('admin.e_body') }}"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="action" id="action" />
+                        <input type="hidden" name="hidden_id" id="hidden_id" />
+                        <button type="submit" class="btn btn-primary" id="action_button" name="action_button"
+                            value="Add"><i class="fa fa-save"></i>
+                            {{ trans('admin.save_changes') }}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            {{ trans('admin.close') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Show Post Modal -->
+
+<div class="modal fade" id="showModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="showTilte" class="control-label col-md-2">{{ trans('admin.title') }}: </label>
+                        <div class="col-md-9">
+                            <div id="showTilte" name="title" class="showStyle"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="showAuthor" class="control-label col-md-2">{{ trans('admin.author') }}:
+                        </label>
+                        <div class="col-md-9">
+                            <div id="showAuthor" name="author" class="showStyle"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="showTags" class="control-label col-md-2">{{ trans('admin.tags') }}: </label>
+                        <div class="col-md-9 selectStyle">
+                            <select class="form-control showStyle selectTags" id="showTags" name="showTags[]"
+                                multiple="multiple" style="width: 100%;">
+                                @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="showBody" class="control-label col-md-2">{{ trans('admin.body') }}: </label>
+                        <div class="col-md-9">
+                            <div id="showBody" name="body" class="showStyleBody"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-success"><i class="fa fa-thumbs-up"></i>
+                            {{ trans('admin.ok') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Delete -->
+
+<div class="modal fade" id="confirmModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 style="margin: 0;" class="text-center">{{ trans('admin.are_you_sure_post') }}
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" name="ok_button" id="ok_button">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    {{ trans('admin.delete') }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    {{ trans('admin.close') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

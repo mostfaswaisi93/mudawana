@@ -1,0 +1,44 @@
+.page-sidebar .page-sidebar-menu {
+    direction: rtl;
+}
+
+.portlet.light.portlet-fit>.portlet-body {
+    direction: rtl;
+}
+
+.modal .modal-body {
+    direction: rtl;
+}
+
+.modal .modal-content .modal-title {
+    direction: rtl;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user>.dropdown-menu {
+    direction: rtl;
+}
+
+.modal .modal-content .modal-footer {
+    direction: rtl;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    direction: rtl;
+}
+
+.page-container-bg-solid.page-md .page-content .page-bar,
+.page-content-white.page-md .page-content .page-bar {
+    direction: rtl;
+}
+
+.fa-circle:before {
+    content: "\f104" !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+    float: left !important;
+}
+
+.showStyleBody {
+    padding-right: 20px !important;
+}
