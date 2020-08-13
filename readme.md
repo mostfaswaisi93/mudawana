@@ -1,3 +1,5 @@
-# Mudawana
+# mudawana
 
-Create Mudawana Laravel Project
+Create Mudawana - PHP Laravel Project 
+
+Simple Blog with Ajax
